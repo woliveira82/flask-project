@@ -1,5 +1,8 @@
-ENV = 'production'
-DEBUG = False
+from os import getenv
+
+
+ENV = getenv('FLASK_ENV', 'development')
+DEBUG = bool(getenv('FLASK_DEBUG', True))
 
 # Installend Blueprints
 BLUEPRINT_LIST = (
