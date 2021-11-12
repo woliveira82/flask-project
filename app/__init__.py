@@ -14,5 +14,3 @@ for bluprint in BLUEPRINT_LIST:
         getattr(module, bluprint['name']),
         url_prefix=f'/api/v{bluprint["version"]}'
     )
-
-from app.controllers.tests import tests
