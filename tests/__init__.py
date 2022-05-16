@@ -6,5 +6,9 @@ import pytest
 def client(scope='session'):
     app.testing = True
     app.config['ENV'] = 'development'
-    app.config['debug'] = True
-    return app.test_client()
+    app.config['DEBUG'] = True
+    with app.test_client() as client:
+        with app.app_context():
+            yield client
+    
+    # free variables, files and sessions
